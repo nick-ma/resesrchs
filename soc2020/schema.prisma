@@ -1,0 +1,30 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Soc2020 {
+  id                     String  @id
+
+  majorGroup             Int
+  majorGroupTitle        String
+  subMajorGroup          Int
+  subMajorGroupTitle     String
+  minorGroup             Int
+  minorGroupTitle        String
+
+  unitGroup              Int
+  groupTitle             String
+
+  groupsClassifiedWithin String?
+  groupDescription       String?
+  entryRoutes            String?
+  tasks                  String?
+  relatedJobTitles       String[]
+
+  eligibleForSkilledWorker Boolean @default(false)
+}
